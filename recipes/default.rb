@@ -207,7 +207,7 @@ service 'apache2' do
       reload_command "/sbin/service #{apache_service_name} graceful && sleep 1"
     end
   when 'debian'
-    provider Chef::Provider::Service::Debian
+    provider Chef::Provider::Service::Systemd
   end
   supports [:start, :restart, :reload, :status]
   action [:enable, :start]
